@@ -1,0 +1,30 @@
+{
+  "name": "recipes",
+  "version": "1.0.0",
+  "description": "recipes application",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel  index.html",
+    "build": "parcel build  index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/Niamask/Recipes-App.git"
+  },
+  "author": "Niama Skay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Niamask/Recipes-App/issues"
+  },
+  "homepage": "https://github.com/Niamask/Recipes-App#readme",
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "parcel": "^2.0.0-rc.0"
+  },
+  "dependencies": {
+    "core-js": "^3.34.0",
+    "regenerator-runtime": "^0.14.1",
+    "sass": "^1.26.10"
+  }
+}
