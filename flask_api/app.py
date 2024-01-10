@@ -1,6 +1,18 @@
 from flask import Flask, jsonify
+# from flask import make_response
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+# CORS(app, resources={r"/*": {"origins": ["http://127.0.0.1:5000"]}})  # Allow specific origin
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+    return response
+
 
 @app.route("/")
 def hello_world():
@@ -56,7 +68,7 @@ recettes = [
 	},
     {
         "publisher":"Closet Cooking",
-        "image_url":"http://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg",
+        "image_url":"https://forkify-api.herokuapp.com/images/fruitpizza9a19.jpg",
         "title":"Cauliflower Pizza Crust (with BBQ Chicken Pizza)",
         "id":"5ed6604591c37cdc054bcc13",
         "code":2
@@ -75,6 +87,7 @@ def get_recette(recette_code):
         return jsonify(recipe)
     else:
         return jsonify({"error": "Recipe not found"}), 404
+    
 
 
 if __name__ == "__main__":

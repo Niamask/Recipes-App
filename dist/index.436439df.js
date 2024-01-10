@@ -481,28 +481,122 @@ const showRecipe = async function() {
         // 1 Loading recipe
         renderSpinner(recipeContainer);
         const res = await fetch(// "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcfb2"
-        "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886");
+        // "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886"
+        "http://127.0.0.1:5000/recettes/5ed6604591c37cdc054bcd09");
+        // fetch("http://127.0.0.1:5000/recettes/5ed6604591c37cdc054bcd09", {
+        //   mode: "no-cors",
+        // });
         const data = await res.json();
         if (!res.ok) throw new Error(`${data.message}(${res.status})`);
         console.log(res, data);
-        let { recipe  } = data.data;
-        recipe = {
-            id: recipe.id,
-            title: recipe.title,
-            publisher: recipe.publisher,
-            sourceUrl: recipe.source_url,
-            image: recipe.image_url,
-            servings: recipe.servings,
-            cookingTime: recipe.cooking_Time,
-            ingredients: recipe.ingredients
-        };
-        console.log(recipe);
-        // 2 Rendering recipe
-        const markup = `\n        <figure class="recipe__fig">\n          <img crossorigin="anonymous" src="${recipe.image}" alt="${recipe.title}" class="recipe__img" />\n          <h1 class="recipe__title">\n            <span>${recipe.title}</span>\n          </h1>\n        </figure>\n\n        <div class="recipe__details">\n          <div class="recipe__info">\n            <svg class="recipe__info-icon">\n              <use href="${_iconsSvgDefault.default}#icon-clock"></use>\n            </svg>\n            <span class="recipe__info-data recipe__info-data--minutes">${recipe.cookingTime}</span>\n            <span class="recipe__info-text">minutes</span>\n          </div>\n          <div class="recipe__info">\n            <svg class="recipe__info-icon">\n              <use href=" ${_iconsSvgDefault.default}#icon-users"></use>\n            </svg>\n            <span class="recipe__info-data recipe__info-data--people">${recipe.servings}</span>\n            <span class="recipe__info-text">servings</span>\n\n            <div class="recipe__info-buttons">\n              <button class="btn--tiny btn--increase-servings">\n                <svg>\n                  <use href=" ${_iconsSvgDefault.default}#icon-minus-circle"></use>\n                </svg>\n              </button>\n              <button class="btn--tiny btn--increase-servings">\n                <svg>\n                  <use href=" ${_iconsSvgDefault.default}#icon-plus-circle"></use>\n                </svg>\n              </button>\n            </div>\n          </div>\n\n          <div class="recipe__user-generated">\n            <svg>\n              <use href="${_iconsSvgDefault.default}#icon-user"></use>\n            </svg>\n          </div>\n          <button class="btn--round">\n            <svg class="">\n              <use href="${_iconsSvgDefault.default}#icon-bookmark-fill"></use>\n            </svg>\n          </button>\n        </div>\n\n        <div class="recipe__ingredients">\n          <h2 class="heading--2">Recipe ingredients</h2>\n          <ul class="recipe__ingredient-list">\n          ${recipe.ingredients.map((ing)=>{
-            return `\n             <li class="recipe__ingredient">\n              <svg class="recipe__icon">\n                <use href="${_iconsSvgDefault.default}#icon-check"></use>\n              </svg>\n              <div class="recipe__quantity">${ing.quantity}</div>\n              <div class="recipe__description">\n                <span class="recipe__unit">${ing.unit}</span>\n                ${ing.description}\n              </div>\n            </li>\n            `;
-        }).join("")}\n        </div>\n\n        <div class="recipe__directions">\n          <h2 class="heading--2">How to cook it</h2>\n          <p class="recipe__directions-text">\n            This recipe was carefully designed and tested by\n            <span class="recipe__publisher">${recipe.publisher}</span>. Please check out\n            directions at their website.\n          </p>\n          <a\n            class="btn--small recipe__btn"\n            href="${recipe.sourceUrl}"\n            target="_blank"\n          >\n            <span>Directions</span>\n            <svg class="search__icon">\n              <use href="${_iconsSvgDefault.default}#icon-arrow-right"></use>\n            </svg>\n          </a>\n        </div>\n        `;
-        recipeContainer.innerHTML = "";
-        recipeContainer.insertAdjacentHTML("afterbegin", markup);
+    // let { recipe } = data.data;
+    // recipe = {
+    //   id: recipe.id,
+    //   title: recipe.title,
+    //   publisher: recipe.publisher,
+    //   // sourceUrl: recipe.source_url,
+    //   image: recipe.image_url,
+    //   // servings: recipe.servings,
+    //   // cookingTime: recipe.cooking_Time,
+    //   // ingredients: recipe.ingredients,
+    //   code: recipe.code,
+    // };
+    // console.log(recipe);
+    // 2 Rendering recipe
+    // const markup = `
+    //     <figure class="recipe__fig">
+    //       <img crossorigin="anonymous" src="${recipe.image}" alt="${
+    //   recipe.title
+    // }" class="recipe__img" />
+    //       <h1 class="recipe__title">
+    //         <span>${recipe.title}</span>
+    //       </h1>
+    //     </figure>
+    //     <div class="recipe__details">
+    //       <div class="recipe__info">
+    //         <svg class="recipe__info-icon">
+    //           <use href="${icons}#icon-clock"></use>
+    //         </svg>
+    //         <span class="recipe__info-data recipe__info-data--minutes">${
+    //           recipe.code
+    //         }</span>
+    //         <span class="recipe__info-text">minutes</span>
+    //       </div>
+    //       <div class="recipe__info">
+    //         <svg class="recipe__info-icon">
+    //           <use href=" ${icons}#icon-users"></use>
+    //         </svg>
+    //         <span class="recipe__info-data recipe__info-data--people">${
+    //           recipe.code
+    //         }</span>
+    //         <span class="recipe__info-text">servings</span>
+    //         <div class="recipe__info-buttons">
+    //           <button class="btn--tiny btn--increase-servings">
+    //             <svg>
+    //               <use href=" ${icons}#icon-minus-circle"></use>
+    //             </svg>
+    //           </button>
+    //           <button class="btn--tiny btn--increase-servings">
+    //             <svg>
+    //               <use href=" ${icons}#icon-plus-circle"></use>
+    //             </svg>
+    //           </button>
+    //         </div>
+    //       </div>
+    //       <div class="recipe__user-generated">
+    //         <svg>
+    //           <use href="${icons}#icon-user"></use>
+    //         </svg>
+    //       </div>
+    //       <button class="btn--round">
+    //         <svg class="">
+    //           <use href="${icons}#icon-bookmark-fill"></use>
+    //         </svg>
+    //       </button>
+    //     </div>
+    //     <div class="recipe__ingredients">
+    //       <h2 class="heading--2">Recipe ingredients</h2>
+    //       <ul class="recipe__ingredient-list">
+    //       ${recipe.code
+    //         .map((ing) => {
+    //           return `
+    //          <li class="recipe__ingredient">
+    //           <svg class="recipe__icon">
+    //             <use href="${icons}#icon-check"></use>
+    //           </svg>
+    //           <div class="recipe__quantity">${ing.quantity}</div>
+    //           <div class="recipe__description">
+    //             <span class="recipe__unit">${ing.unit}</span>
+    //             ${ing.description}
+    //           </div>
+    //         </li>
+    //         `;
+    //         })
+    //         .join("")}
+    //     </div>
+    //     <div class="recipe__directions">
+    //       <h2 class="heading--2">How to cook it</h2>
+    //       <p class="recipe__directions-text">
+    //         This recipe was carefully designed and tested by
+    //         <span class="recipe__publisher">${
+    //           recipe.publisher
+    //         }</span>. Please check out
+    //         directions at their website.
+    //       </p>
+    //       <a
+    //         class="btn--small recipe__btn"
+    //         href="${recipe.code}"
+    //         target="_blank"
+    //       >
+    //         <span>Directions</span>
+    //         <svg class="search__icon">
+    //           <use href="${icons}#icon-arrow-right"></use>
+    //         </svg>
+    //       </a>
+    //     </div>
+    //     `;
+    // recipeContainer.innerHTML = "";
+    // recipeContainer.insertAdjacentHTML("afterbegin", markup);
     } catch (err) {
         alert(err);
     }
