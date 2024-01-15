@@ -119,63 +119,65 @@ def get_recipe_by_id(recipe_code):
     else:
         return jsonify({"error": "Recipe not found"}), 404
 
-fall_recipe = {
+all_recipe = {
     "status":'success',
     "data": {"recipe": recipe}
 }
 
-@app.route("/fall_recipe")
+
+#get one recipe
+@app.route("/all_recipe")
 def get_y():
-    return jsonify(fall_recipe)
+    return jsonify(all_recipe)
 
-recipes = {
 
-	0:{
+###########################################################@
+
+recipes = [
+	{
         "publisher":"Closet Cooking",
 	    "image_url":"http://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg",
 	    "title":"Cauliflower Pizza Crust (with BBQ Chicken Pizza)",
 	    "id":"5ed6604591c37cdc054bcd09",
 
 	},
-    1:{
+    {
         "publisher":"Closet Cooking",
         "image_url":"https://forkify-api.herokuapp.com/images/fruitpizza9a19.jpg",
         "title":"Cauliflower Pizza Crust (with BBQ Chicken Pizza)",
         "id":"5ed6604591c37cdc054bcc13",
     },
-   2:{
+   {
         "publisher":"A Spicy Perspective",
 	    "image_url":"http://forkify-api.herokuapp.com/images/IMG_4351180x1804f4a.jpg",
         "title":"Greek Pizza",
         "id":"5ed6604591c37cdc054bca3b",
     }
     # Add more recipes here
-}
-    
-
+]
 
 @app.route("/recipes")
 def get_recipes():
     return jsonify(recipes)
 
-@app.route("/recipes/<string:recipe_id>")
-def get_recipes_by_id(recipe_id):
-    recipe = next((recipe for recipe in recipes if recipe["id"] == recipe_id), None)
-    if recipe:
-        return jsonify(recipe)
-    else:
-        return jsonify({"error": "Recipe not found"}), 404
 
-fall_recipes = {
+all_recipes = {
     "status":'success',
     "results":3,
     "data": {"recipe": recipes}
 }
 
-@app.route("/fall_recipes")
+@app.route("/all_recipes")
 def get_x():
-    return jsonify(fall_recipes)
+    return jsonify(all_recipes)
 
+@app.route("/all_recipes/<string:id>")
+def get_recipesId(id):
+    recipe = next((recipe for recipe in recipes if recipe["id"] == id), None)
+    if recipe:
+        return jsonify(recipe)
+    else:
+        return jsonify({"error": "Recipe not found"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)

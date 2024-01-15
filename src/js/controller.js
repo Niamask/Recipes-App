@@ -16,7 +16,7 @@ const timeout = function (s) {
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
-// console.log("Test");
+console.log("Test");
 const renderSpinner = function (parentEl) {
   const markup = `
         <div class="spinner">
@@ -34,9 +34,9 @@ const showRecipe = async function () {
     renderSpinner(recipeContainer);
     const res = await fetch(
       // "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcfb2"
-      // "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886"
+      "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886"
       // "http://127.0.0.1:5000/recettes/5ed6604591c37cdc054bcd09"
-      "http://127.0.0.1:5000/x"
+      // "http://127.0.0.1:5000/all_recipe"
     );
 
     const data = await res.json();
@@ -49,12 +49,11 @@ const showRecipe = async function () {
     //   id: recipe.id,
     //   title: recipe.title,
     //   publisher: recipe.publisher,
-    //   // sourceUrl: recipe.source_url,
+    //   sourceUrl: recipe.source_url,
     //   image: recipe.image_url,
-    //   // servings: recipe.servings,
-    //   // cookingTime: recipe.cooking_Time,
-    //   // ingredients: recipe.ingredients,
-    //   code: recipe.code,
+    //   servings: recipe.servings,
+    //   cookingTime: recipe.cooking_Time,
+    //   ingredients: recipe.ingredients,
     // };
     // console.log(recipe);
 
