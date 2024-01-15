@@ -32,6 +32,9 @@ const showRecipe = async function () {
   try {
     let id = window.location.hash.slice(1);
     console.log(id);
+
+    if (!id) return;
+
     // 1 Loading recipe
     renderSpinner(recipeContainer);
     const res = await fetch(
@@ -167,6 +170,7 @@ const showRecipe = async function () {
 };
 
 // showRecipe();
-// ["hashchange","load"].forEach(ev=>window.addEventListener(ev,showRecipe);
-window.addEventListener("hashchange", showRecipe);
-window.addEventListener("load", showRecipe);
+// this single line replaces the two below
+["hashchange", "load"].forEach((ev) => window.addEventListener(ev, showRecipe));
+// window.addEventListener("hashchange", showRecipe);
+// window.addEventListener("load", showRecipe);
