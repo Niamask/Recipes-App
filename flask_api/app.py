@@ -111,23 +111,18 @@ def get_recipe():
     return jsonify(recipe)
 
 
-@app.route("/recipe/<string:recipe_code>")
-def get_recipe_by_id(recipe_code):
-    recipe = next((recipe for recipe in recipe if recipe["id"] == recipe_code), None)
-    if recipe:
-        return jsonify(recipe)
-    else:
-        return jsonify({"error": "Recipe not found"}), 404
-
 all_recipe = {
     "status":'success',
     "data": {"recipe": recipe}
 }
 
-
 #get one recipe
 @app.route("/all_recipe")
 def get_y():
+    return jsonify(all_recipe)
+
+@app.route("/all_recipe/<string:recipe_code>")
+def get_recipeId(recipe_code):
     return jsonify(all_recipe)
 
 
@@ -156,6 +151,7 @@ recipes = [
     # Add more recipes here
 ]
 
+# get 3 different recipes
 @app.route("/recipes")
 def get_recipes():
     return jsonify(recipes)
