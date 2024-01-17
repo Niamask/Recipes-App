@@ -7,7 +7,7 @@ import "regenerator-runtime/runtime";
 const recipeContainer = document.querySelector(".recipe");
 
 ///////////////////////////////////////
-console.log("Salut");
+console.log("Hello");
 
 const controlRecipes = async function () {
   try {
@@ -24,6 +24,7 @@ const controlRecipes = async function () {
     recipeView.render(model.state.recipe);
   } catch (err) {
     console.log(err);
+    recipeView.renderError();
   }
 };
 
