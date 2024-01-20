@@ -23,7 +23,7 @@
     "parcel": "^2.0.0-rc.0"
   },
   "dependencies": {
-    "core-js": "^3.34.0",
+    "core-js": "^3.35.0",
     "cors": "^2.8.5",
     "leaflet": "^1.9.4",
     "lodash-es": "^4.17.21",

@@ -140,12 +140,12 @@
   }
 
   &:hover svg {
-    fill: $color-grad-2;
+    fill: $color-grad-1;
     transform: translateY(-1px);
   }
 
   &:active svg {
-    fill: $color-grad-2;
+    fill: $color-grad-1;
     transform: translateY(0);
   }
 
