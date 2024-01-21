@@ -2,7 +2,7 @@
 Welcome to the Culinary world, your personalized navigation system for culinary adventures!
 
 
-![Alt text](Culinaryworld.png)
+![Alt text](Culinaryworld0.png)
 
 ## Table of Content
 * [Overview](#Overview)
