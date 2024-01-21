@@ -9,7 +9,7 @@ Welcome to the Culinary world, your personalized navigation system for culinary 
 * [The Story](#The-Story)
 * [Built With](#Built-With)
 * [API](#API)
-* [Bugs](#Bugs)
+* [Contributing](#Contributing)
 * [Author](#Author)
 * [License](#License)
   
@@ -39,11 +39,19 @@ Remember staring blankly at your fridge, longing for a delicious but doable meal
 ## API
 The API can be found in ......
  
-## Bugs
-No known bugs at this time. 
+## Contributing
+We welcome contributions! Please follow these steps:
+
+  1. Fork the repository.
+  2. Create a new branch for your changes.
+  3. Make your changes and commit them with clear messages.
+  4. Push your branch to your fork.
+  5. Create a pull request.
 
 ## Author
 Niama SKAY - [Github](https://github.com/Niamask) / [Twitter](https://twitter.com/NiamaSky)
 
 ## License
 Public Domain. No copy write protection. 
+
+## Bon Appétit!
