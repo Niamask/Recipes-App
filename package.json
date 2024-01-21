@@ -28,6 +28,7 @@
     "cors": "^2.8.5",
     "leaflet": "^1.9.4",
     "lodash-es": "^4.17.21",
-    "regenerator-runtime": "^0.14.1"
+    "regenerator-runtime": "^0.14.1",
+    "urix": "^0.1.0"
   }
 }
