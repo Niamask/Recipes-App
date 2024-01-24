@@ -13,7 +13,7 @@ import { async } from "regenerator-runtime";
 // const recipeContainer = document.querySelector(".recipe");
 
 ///////////////////////////////////////
-console.log("Hello");
+console.log("Bonjour");
 
 const controlRecipes = async function () {
   try {

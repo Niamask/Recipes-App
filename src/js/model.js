@@ -16,6 +16,7 @@ export const state = {
 export const loadRecipe = async function (id) {
   try {
     const data = await getJSON(`${API_URL}${id}`);
+    console.log(data);
 
     const { recipe } = data.data;
     state.recipe = {
@@ -25,9 +26,10 @@ export const loadRecipe = async function (id) {
       sourceUrl: recipe.source_url,
       image: recipe.image_url,
       servings: recipe.servings,
-      cookingTime: recipe.cooking_Time,
+      cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
+    console.log(`${recipe.cooking_Time}`);
 
     if (state.bookmarks.some((bookmark) => bookmark.id === id))
       state.recipe.bookmark = true;
@@ -69,9 +71,10 @@ export const loadSearchResults = async function (query) {
 export const getSearchResultsPage = function (page = state.search.page) {
   state.search.page = page;
 
-  const start = (page - 1) * state.search.resultsPerPage; // 0
-  const end = page * state.search.resultsPerPage; // 9
+  const start = (page - 1) * state.search.resultsPerPage; //0;
+  const end = page * state.search.resultsPerPage; //9;
 
+  console.log(start, end);
   return state.search.results.slice(start, end);
 };
 

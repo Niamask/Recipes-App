@@ -40,6 +40,7 @@ class recipeView extends View {
   }
 
   _generateMarkup() {
+    console.log(`${this._data.cookingTime}`);
     return `
       <figure class="recipe__fig">
         <img  crossorigin = "anonymous" src="${this._data.image}" alt="${
