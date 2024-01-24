@@ -8,7 +8,6 @@ Welcome to the Culinary world, your personalized navigation system for culinary 
 * [Overview](#Overview)
 * [The Story](#The-Story)
 * [Built With](#Built-With)
-* [API](#API)
 * [Contributing](#Contributing)
 * [Author](#Author)
 * [License](#License)
@@ -36,8 +35,6 @@ Remember staring blankly at your fridge, longing for a delicious but doable meal
 - css - The Frontend Language
 - Sass - The Frontend Language
 
-## API
-The API can be found in ......
  
 ## Contributing
 We welcome contributions! Please follow these steps:
